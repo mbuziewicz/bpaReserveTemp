@@ -1,0 +1,47 @@
+﻿@page
+@model BpaReserve.Pages.RideReserve.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RideReservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RideReservation.ID" class="control-label"></label>
+                <input asp-for="RideReservation.ID" class="form-control" />
+                <span asp-validation-for="RideReservation.ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RideReservation.UserID" class="control-label"></label>
+                <select asp-for="RideReservation.UserID" class ="form-control" asp-items="ViewBag.UserID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RideReservation.RideID" class="control-label"></label>
+                <select asp-for="RideReservation.RideID" class ="form-control" asp-items="ViewBag.RideID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RideReservation.DateAndTime" class="control-label"></label>
+                <input asp-for="RideReservation.DateAndTime" class="form-control" />
+                <span asp-validation-for="RideReservation.DateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

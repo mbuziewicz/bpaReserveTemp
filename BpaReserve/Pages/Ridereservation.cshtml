@@ -1,0 +1,54 @@
+﻿@page
+@model BpaReserve.Pages.RidereservationModel
+@{
+}
+
+<div class="container ride">
+    <div class="container-time1">
+        <h2 class="heading-ride">Theme park</h2>
+        <h3 class="heading-days-ride">Please Note We have Different wait time depending on the ride</h3>
+
+        <h3 class="heading-days">Have A wonderful day</h3>
+
+
+        <hr>
+
+        <h4 class="heading-phone">Ran into a problem <br /> Call Us: (123) 45-45-456</h4>
+    </div>
+
+    <div class="container-form-ride">
+        <form action="#">
+            <h2 class="heading heading-yellow">Reservation Online</h2>
+
+            <div class="form-field-ride">
+                <p>Your Name</p>
+                <input type="text" placeholder="Your Name">
+            </div>
+            <div class="form-field-ride">
+                <p>Your email</p>
+                <input type="email" placeholder="Your email">
+            </div>
+            <div class="form-field-ride">
+                <p>Date</p>
+                <input type="date">
+            </div>
+            <div class="form-field-ride">
+                <p>Time</p>
+                <input type="time">
+            </div>
+            <div class="form-field-ride">
+                <p>How many people?</p>
+                <select name="select" id="#">
+                    <option value="1">1 person</option>
+                    <option value="2">2 persons</option>
+                    <option value="3">3 persosn</option>
+                    <option value="4">4 persons</option>
+                    <option value="5">5 persons</option>
+                    <option value="5+">5+ persons</option>
+                </select>
+            </div>
+
+            <button class="btn-ride">Submit</button>
+        </form>
+    </div>
+</div>
