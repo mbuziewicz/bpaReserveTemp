@@ -30,7 +30,7 @@ namespace BpaReserve.Pages.Users
                 return NotFound();
             }
 
-            user = await _context.user.FirstOrDefaultAsync(m => m.UserID == id);
+            user = await _context.user.FirstOrDefaultAsync(m => m.ID == id);
 
             if (user == null)
             {
@@ -56,7 +56,7 @@ namespace BpaReserve.Pages.Users
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!userExists(user.UserID))
+                if (!userExists(user.ID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace BpaReserve.Pages.Users
 
         private bool userExists(int id)
         {
-            return _context.user.Any(e => e.UserID == id);
+            return _context.user.Any(e => e.ID == id);
         }
     }
 }

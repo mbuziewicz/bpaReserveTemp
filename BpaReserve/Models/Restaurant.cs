@@ -8,7 +8,8 @@ namespace Bpa_Test_2.Models
 {
     public class Restaurant
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //Set the key to autoincrement
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RestaurantID { get; set; }
         public string RestaurantName { get; set; }
         public string RestaurantImageUrl { get; set; }

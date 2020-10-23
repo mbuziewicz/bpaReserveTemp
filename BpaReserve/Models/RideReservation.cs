@@ -8,7 +8,7 @@ namespace Bpa_Test_2.Models
 {
     public class RideReservation
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public int UserID { get; set; }
         public int RideID { get; set; }

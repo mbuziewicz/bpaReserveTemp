@@ -30,7 +30,7 @@ namespace BpaReserve.Pages.Rides
                 return NotFound();
             }
 
-            Ride = await _context.Ride.FirstOrDefaultAsync(m => m.ID == id);
+            Ride = await _context.Ride.FirstOrDefaultAsync(m => m.RideID == id);
 
             if (Ride == null)
             {
@@ -56,7 +56,7 @@ namespace BpaReserve.Pages.Rides
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RideExists(Ride.ID))
+                if (!RideExists(Ride.RideID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace BpaReserve.Pages.Rides
 
         private bool RideExists(int id)
         {
-            return _context.Ride.Any(e => e.ID == id);
+            return _context.Ride.Any(e => e.RideID == id);
         }
     }
 }

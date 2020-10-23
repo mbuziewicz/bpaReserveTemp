@@ -14,9 +14,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Ride[0].RideID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Ride[0].RideName)
             </th>
             <th>
@@ -35,9 +32,6 @@
 @foreach (var item in Model.Ride) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RideID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.RideName)
             </td>
             <td>
@@ -50,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.RideImageUrl)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.RideID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RideID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RideID">Delete</a>
             </td>
         </tr>
 }

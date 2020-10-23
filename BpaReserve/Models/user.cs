@@ -8,8 +8,7 @@ namespace Bpa_Test_2.Models
 {
     public class user
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int UserID { get; set; }
+        public int ID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Email { get; set; }

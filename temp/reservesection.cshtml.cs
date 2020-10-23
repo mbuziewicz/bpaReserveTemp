@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,19 +10,20 @@ using Bpa_Test_2.Models;
 
 namespace BpaReserve.Pages.RestReserve
 {
-    public class CreateModel : PageModel
+    public class CreateRestReserveModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
 
-        public CreateModel(BpaReserve.Data.BpaReserveContext context)
+        public CreateRestReserveModel(BpaReserve.Data.BpaReserveContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["RestaurantID"] = new SelectList(_context.Restaurant, "RestaurantID", "RestaurantID");
-        ViewData["UserID"] = new SelectList(_context.user, "ID", "ID");
+            ViewData["RestaurantID"] = new SelectList(_context.Restaurant, "RestaurantID", "RestaurantID");
+            ViewData["UserID"] = new SelectList(_context.user, "UserID", "UserID");
+            ViewData["DateAndTime"] = new SelectList(_context.user, "DateAndTime", "DateAndTime");
             return Page();
         }
 

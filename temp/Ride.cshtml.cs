@@ -10,12 +10,12 @@ using Bpa_Test_2.Models;
 
 namespace BpaReserve.Pages
 {
-    public class RideReserveModel : PageModel
+    public class RideModel : PageModel
     {
 
         private readonly BpaReserve.Data.BpaReserveContext _context;
 
-        public RideReserveModel(BpaReserve.Data.BpaReserveContext context)
+        public RideModel(BpaReserve.Data.BpaReserveContext context)
         {
             _context = context;
         }

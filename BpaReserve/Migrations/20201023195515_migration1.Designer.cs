@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BpaReserve.Migrations
 {
     [DbContext(typeof(BpaReserveContext))]
-    [Migration("20201023134910_migration6")]
-    partial class migration6
+    [Migration("20201023195515_migration1")]
+    partial class migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,9 @@ namespace BpaReserve.Migrations
             modelBuilder.Entity("Bpa_Test_2.Models.Restaurant", b =>
                 {
                     b.Property<int>("RestaurantID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -45,14 +47,16 @@ namespace BpaReserve.Migrations
 
             modelBuilder.Entity("Bpa_Test_2.Models.Ride", b =>
                 {
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
+                    b.Property<int>("RideID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RideID")
-                        .HasColumnType("int");
+                    b.Property<string>("RideImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RideName")
                         .HasColumnType("nvarchar(max)");
@@ -60,7 +64,7 @@ namespace BpaReserve.Migrations
                     b.Property<string>("WaitTime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("RideID");
 
                     b.ToTable("Ride");
                 });
@@ -68,7 +72,9 @@ namespace BpaReserve.Migrations
             modelBuilder.Entity("Bpa_Test_2.Models.RideReservation", b =>
                 {
                     b.Property<int>("ID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
@@ -91,7 +97,9 @@ namespace BpaReserve.Migrations
             modelBuilder.Entity("Bpa_Test_2.Models.restaurant_reservation", b =>
                 {
                     b.Property<int>("ID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
@@ -113,8 +121,10 @@ namespace BpaReserve.Migrations
 
             modelBuilder.Entity("Bpa_Test_2.Models.user", b =>
                 {
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -131,7 +141,7 @@ namespace BpaReserve.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserID");
+                    b.HasKey("ID");
 
                     b.ToTable("user");
                 });

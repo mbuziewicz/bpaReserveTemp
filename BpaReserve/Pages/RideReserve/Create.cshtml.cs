@@ -21,8 +21,8 @@ namespace BpaReserve.Pages.RideReserve
 
         public IActionResult OnGet()
         {
-        ViewData["RideID"] = new SelectList(_context.Ride, "ID", "ID");
-        ViewData["UserID"] = new SelectList(_context.user, "UserID", "UserID");
+        ViewData["RideID"] = new SelectList(_context.Ride, "RideID", "RideID");
+        ViewData["UserID"] = new SelectList(_context.user, "ID", "ID");
             return Page();
         }
 

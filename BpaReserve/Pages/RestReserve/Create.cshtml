@@ -14,13 +14,8 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="restaurant_reservation.ID" class="control-label"></label>
-                <input asp-for="restaurant_reservation.ID" class="form-control" />
-                <span asp-validation-for="restaurant_reservation.ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="restaurant_reservation.UserID" class="control-label"></label>
-                <select asp-for="restaurant_reservation.Restaurant" class ="form-control" asp-items="ViewBag.UserID"></select>
+                <select asp-for="restaurant_reservation.UserID" class ="form-control" asp-items="ViewBag.UserID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="restaurant_reservation.RestaurantID" class="control-label"></label>

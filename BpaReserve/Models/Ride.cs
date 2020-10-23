@@ -8,8 +8,8 @@ namespace Bpa_Test_2.Models
 {
     public class Ride
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ID { get; set; }
+        //Set the key to autoincrement
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RideID { get; set; }
         public string RideName { get; set; }
         public string Description { get; set; }

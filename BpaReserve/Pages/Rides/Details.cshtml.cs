@@ -28,7 +28,7 @@ namespace BpaReserve.Pages.Rides
                 return NotFound();
             }
 
-            Ride = await _context.Ride.FirstOrDefaultAsync(m => m.ID == id);
+            Ride = await _context.Ride.FirstOrDefaultAsync(m => m.RideID == id);
 
             if (Ride == null)
             {

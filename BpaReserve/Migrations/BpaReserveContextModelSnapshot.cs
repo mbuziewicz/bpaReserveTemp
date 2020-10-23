@@ -22,7 +22,9 @@ namespace BpaReserve.Migrations
             modelBuilder.Entity("Bpa_Test_2.Models.Restaurant", b =>
                 {
                     b.Property<int>("RestaurantID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -43,14 +45,13 @@ namespace BpaReserve.Migrations
 
             modelBuilder.Entity("Bpa_Test_2.Models.Ride", b =>
                 {
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
+                    b.Property<int>("RideID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RideID")
-                        .HasColumnType("int");
 
                     b.Property<string>("RideImageUrl")
                         .HasColumnType("nvarchar(max)");
@@ -61,7 +62,7 @@ namespace BpaReserve.Migrations
                     b.Property<string>("WaitTime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("RideID");
 
                     b.ToTable("Ride");
                 });
@@ -69,7 +70,9 @@ namespace BpaReserve.Migrations
             modelBuilder.Entity("Bpa_Test_2.Models.RideReservation", b =>
                 {
                     b.Property<int>("ID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
@@ -92,7 +95,9 @@ namespace BpaReserve.Migrations
             modelBuilder.Entity("Bpa_Test_2.Models.restaurant_reservation", b =>
                 {
                     b.Property<int>("ID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
@@ -114,8 +119,10 @@ namespace BpaReserve.Migrations
 
             modelBuilder.Entity("Bpa_Test_2.Models.user", b =>
                 {
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -132,7 +139,7 @@ namespace BpaReserve.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserID");
+                    b.HasKey("ID");
 
                     b.ToTable("user");
                 });

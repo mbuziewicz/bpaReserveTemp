@@ -29,7 +29,7 @@ namespace BpaReserve.Pages.Users
                 return NotFound();
             }
 
-            user = await _context.user.FirstOrDefaultAsync(m => m.UserID == id);
+            user = await _context.user.FirstOrDefaultAsync(m => m.ID == id);
 
             if (user == null)
             {

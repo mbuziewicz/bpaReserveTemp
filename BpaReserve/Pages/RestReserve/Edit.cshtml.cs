@@ -39,7 +39,7 @@ namespace BpaReserve.Pages.RestReserve
                 return NotFound();
             }
            ViewData["RestaurantID"] = new SelectList(_context.Restaurant, "RestaurantID", "RestaurantID");
-           ViewData["UserID"] = new SelectList(_context.user, "UserID", "UserID");
+           ViewData["UserID"] = new SelectList(_context.user, "ID", "ID");
             return Page();
         }
 
