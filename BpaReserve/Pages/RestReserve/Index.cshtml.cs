@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BpaReserve.Data;
 using Bpa_Test_2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BpaReserve.Pages.RestReserve
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
