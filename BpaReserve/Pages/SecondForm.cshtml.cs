@@ -1,17 +1,18 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using Bpa_Test_2.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace BpaReserve.Pages
 {
-    public class ridereservesectionModel : PageModel
+    public class RideCard2Model : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
 
-        public ridereservesectionModel(BpaReserve.Data.BpaReserveContext context)
+        public RideCard2Model(BpaReserve.Data.BpaReserveContext context)
         {
             _context = context;
         }
@@ -20,8 +21,8 @@ namespace BpaReserve.Pages
 
         public void OnGet(int id)
         {
-            Ride = _context.Ride.FirstOrDefault(e => e.RideID == id);
-
+            Ride =  _context.Ride.FirstOrDefault(e => e.RideID == id);
+            
         }
     }
 }

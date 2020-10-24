@@ -2,11 +2,6 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 
-.container {
-    margin: 0;
-    padding: 0;
-}
-
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -39,9 +34,8 @@ a.navbar-brand {
     transform: translateY(-10px) scale(1.005) translateZ(0);
     box-shadow: 0 24px 36px rgba(0,0,0,0.11), 0 24px 46px var(--box-shadow-color);
 }
-.resturant-body{
-    background-color:red;
-}
+
+
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;

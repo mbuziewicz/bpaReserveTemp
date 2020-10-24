@@ -1,41 +1,41 @@
 ﻿@page
-@model BpaReserve.Pages.RestReserve.CreateModel
+@model BpaReserve.Pages.RestReserveEdit2Model
 @{
+    ViewData["Title"] = "Reserve Restaurant";
 }
 
-<section class="banner">
-    <h2 >BOOK YOUR TABLE NOW</h2>
-    <div class="card-container">
-        <div class="card-img">
-            <!-- image here -->
-        </div>
+<h1>@ViewBag.Title</h1>
 
-        <div class="card-content">
-            <h3>Reservation</h3>
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="restaurant_reservation.ID" class="control-label"></label>
-                    <input asp-for="restaurant_reservation.ID" class="form-control" />
-                    <span asp-validation-for="restaurant_reservation.ID" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="restaurant_reservation.UserID" class="control-label"></label>
-                    <select asp-for="restaurant_reservation.UserID" class="form-control" asp-items="ViewBag.UserID"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="restaurant_reservation.RestaurantID" class="control-label"></label>
-                    <select asp-for="restaurant_reservation.RestaurantID" class="form-control" asp-items="ViewBag.RestaurantID"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="restaurant_reservation.DateAndTime" class="control-label"></label>
-                    <input asp-for="restaurant_reservation.DateAndTime" class="form-control" />
-                    <span asp-validation-for="restaurant_reservation.DateAndTime" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-warning" />
-                </div>
-            </form>
-        </div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h4>@ViewBag.RestaurantName</h4>
+        <img class="card-img-top" src="@ViewBag.RestaurantImageUrl" alt="Card image cap">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="restaurant_reservation.UserID" class="form-control" value="@ViewBag.UserID" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="restaurant_reservation.RestaurantID" class="form-control" value="@ViewBag.RestaurantID" />
+            </div>
+            <div class="form-group">
+                <label asp-for="restaurant_reservation.DateAndTime" class="control-label"></label>
+                <input asp-for="restaurant_reservation.DateAndTime" class="form-control" />
+                <span asp-validation-for="restaurant_reservation.DateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Reserve Restaurant" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
-</section>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

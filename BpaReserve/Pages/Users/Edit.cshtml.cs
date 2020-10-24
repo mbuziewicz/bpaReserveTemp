@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BpaReserve.Data;
 using Bpa_Test_2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BpaReserve.Pages.Users
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;

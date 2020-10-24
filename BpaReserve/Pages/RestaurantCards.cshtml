@@ -21,8 +21,8 @@
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.RestaurantName)</h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-                            <a class="btn btn-primary" asp-area="" asp-page="/reservesection">Reserve</a>
-                            <a asp-page="./Details" asp-route-id="@item.RestaurantID">Details</a> |
+                            <a class="btn btn-primary" asp-route-RestaurantId="@item.RestaurantID" asp-route-UserId="1" asp-area="" asp-page="/reservesection">Reserve</a>
+
                         </div>
                     </div>
                 </div>

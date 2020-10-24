@@ -35,9 +35,6 @@
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-page="/About">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-page="/MyAccount">MyAccount</a>
-                        </li>
 
                         <li class="nav-item dropdown">
                             <a class=" nav-link dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
@@ -57,7 +54,7 @@
     </header>
     <!-- removed the class="container".  This might cause trouble later.  Could try css for pb-3 -->
     <div>
-        <main role="main" class="pb-3">
+        <main class="container" role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>

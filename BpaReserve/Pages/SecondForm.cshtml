@@ -1,0 +1,28 @@
+﻿@page
+@model BpaReserve.Pages.RideCard2Model
+@{
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Ride.RideName</h1>
+            </div>
+
+            <div class="card-body text-center">
+
+
+                <h4>Ride ID : @Model.Ride.RideID</h4>
+                <h4>Ride Name : @Model.Ride.RideName</h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a asp-page="index"
+                   class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

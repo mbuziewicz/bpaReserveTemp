@@ -21,8 +21,8 @@
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.RideName)</h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => item.WaitTime)</p>
-                            <a class="btn btn-primary" asp-area="" asp-page="/ridereservesection">Reserve</a>
-                            <a asp-page="./Details" asp-route-id="@item.RideID">Details</a> |
+                            <!--Pass the RideID through the helper tag -->
+                            <a asp-page="/ridereservesection" asp-route-ID="@item.RideID" class="btn btn-primary m-1">Reserve</a>
                         </div>
                     </div>
                 </div>

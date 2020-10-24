@@ -10,6 +10,7 @@ using Bpa_Test_2.Models;
 
 namespace BpaReserve.Pages.Restaurants
 {
+
     public class IndexModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
