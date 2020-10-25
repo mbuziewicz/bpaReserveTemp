@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BpaReserve.Data;
 using Bpa_Test_2.Models;
+using System.Security.Claims;
 
 namespace BpaReserve.Pages.RestReserve
 {
@@ -21,8 +22,14 @@ namespace BpaReserve.Pages.RestReserve
 
         public IActionResult OnGet()
         {
-        ViewData["RestaurantID"] = new SelectList(_context.Restaurant, "RestaurantID", "RestaurantID");
-        ViewData["UserID"] = new SelectList(_context.user, "ID", "ID");
+
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            System.Diagnostics.Debug.WriteLine("Userid:{0}", currentUserID);
+
+            ViewData["currentUserID"] = currentUserID;
+            ViewData["UserID"] = currentUserID;
+            ViewData["RestaurantID"] = new SelectList(_context.Restaurant, "RestaurantID", "RestaurantID");
             return Page();
         }
 

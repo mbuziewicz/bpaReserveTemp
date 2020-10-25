@@ -31,15 +31,13 @@ namespace BpaReserve.Pages.RestReserve
             }
 
             restaurant_reservation = await _context.restaurant_reservation
-                .Include(r => r.Restaurant)
-                .Include(r => r.user).FirstOrDefaultAsync(m => m.ID == id);
+                .Include(r => r.Restaurant).FirstOrDefaultAsync(m => m.ID == id);
 
             if (restaurant_reservation == null)
             {
                 return NotFound();
             }
            ViewData["RestaurantID"] = new SelectList(_context.Restaurant, "RestaurantID", "RestaurantID");
-           ViewData["UserID"] = new SelectList(_context.user, "ID", "ID");
             return Page();
         }
 

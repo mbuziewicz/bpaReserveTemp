@@ -14,7 +14,6 @@ namespace Bpa_Test_2.Models
         public string RideName { get; set; }
         public string Description { get; set; }
         public string WaitTime { get; set; }
-
         public string RideImageUrl { get; set; }
 
     }

@@ -14,7 +14,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <input type="hidden" asp-for="restaurant_reservation.UserID" class="form-control" value="@ViewBag.UserID" />
+                <input type="text" asp-for="restaurant_reservation.NewUserID" class="form-control" value="@ViewBag.UserID" />
             </div>
             <div class="form-group">
                 <input type="hidden" asp-for="restaurant_reservation.RestaurantID" class="form-control" value="@ViewBag.RestaurantID" />

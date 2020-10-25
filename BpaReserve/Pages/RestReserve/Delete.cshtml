@@ -13,16 +13,16 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.restaurant_reservation.NewUserID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.restaurant_reservation.NewUserID)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.restaurant_reservation.DateAndTime)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.restaurant_reservation.DateAndTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.restaurant_reservation.user)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.restaurant_reservation.user.ID)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.restaurant_reservation.Restaurant)

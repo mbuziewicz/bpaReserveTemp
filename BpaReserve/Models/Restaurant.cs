@@ -16,6 +16,5 @@ namespace Bpa_Test_2.Models
         public string Description { get; set; }
         public string WaitTime { get; set; }
 
-        public ICollection<restaurant_reservation> restaurant_reservations { get; set; }
     }
 }

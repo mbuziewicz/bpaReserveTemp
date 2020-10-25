@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using BpaReserve.Data;
 using Bpa_Test_2.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace BpaReserve.Pages
 {
@@ -29,8 +30,13 @@ namespace BpaReserve.Pages
         {
             Restaurant = await _context.Restaurant.FirstOrDefaultAsync(m => m.RestaurantID == RestaurantId);
 
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            System.Diagnostics.Debug.WriteLine("Userid:{0}", currentUserID);
+
+            ViewData["currentUserID"] = currentUserID;
             ViewData["RestaurantID"] = RestaurantId;
-            ViewData["UserID"] = UserId;
+            ViewData["UserID"] = currentUserID;
             ViewData["RestaurantName"] = Restaurant.RestaurantName;
             ViewData["RestaurantImageUrl"] = Restaurant.RestaurantImageUrl;
             return Page();

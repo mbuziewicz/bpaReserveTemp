@@ -9,7 +9,7 @@ namespace Bpa_Test_2.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public int UserID { get; set; }
+        public string NewUserID { get; set; }
         public int RestaurantID { get; set; }
         public DateTime DateAndTime { get; set; }
 

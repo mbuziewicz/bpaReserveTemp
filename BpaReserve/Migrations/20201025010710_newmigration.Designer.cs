@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BpaReserve.Migrations
 {
     [DbContext(typeof(BpaReserveContext))]
-    [Migration("20201023195515_migration1")]
-    partial class migration1
+    [Migration("20201025010710_newmigration")]
+    partial class newmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,17 +104,20 @@ namespace BpaReserve.Migrations
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("NewUserID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("RestaurantID")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("userID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
                     b.HasIndex("RestaurantID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("userID");
 
                     b.ToTable("restaurant_reservation");
                 });
@@ -133,6 +136,9 @@ namespace BpaReserve.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MicrosoftUserID")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
@@ -164,16 +170,14 @@ namespace BpaReserve.Migrations
             modelBuilder.Entity("Bpa_Test_2.Models.restaurant_reservation", b =>
                 {
                     b.HasOne("Bpa_Test_2.Models.Restaurant", "Restaurant")
-                        .WithMany("restaurant_reservations")
+                        .WithMany()
                         .HasForeignKey("RestaurantID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Bpa_Test_2.Models.user", "user")
-                        .WithMany("restaurant_reservations")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("userID");
                 });
 #pragma warning restore 612, 618
         }

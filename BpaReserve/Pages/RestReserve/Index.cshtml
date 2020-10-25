@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.restaurant_reservation[0].DateAndTime)
+                @Html.DisplayNameFor(model => model.restaurant_reservation[0].NewUserID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.restaurant_reservation[0].user)
+                @Html.DisplayNameFor(model => model.restaurant_reservation[0].DateAndTime)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.restaurant_reservation[0].Restaurant)
@@ -29,10 +29,10 @@
 @foreach (var item in Model.restaurant_reservation) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DateAndTime)
+                @Html.DisplayFor(modelItem => item.NewUserID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.user.ID)
+                @Html.DisplayFor(modelItem => item.DateAndTime)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Restaurant.RestaurantID)

@@ -29,8 +29,7 @@ namespace BpaReserve.Pages.RestReserve
             }
 
             restaurant_reservation = await _context.restaurant_reservation
-                .Include(r => r.Restaurant)
-                .Include(r => r.user).FirstOrDefaultAsync(m => m.ID == id);
+                .Include(r => r.Restaurant).FirstOrDefaultAsync(m => m.ID == id);
 
             if (restaurant_reservation == null)
             {

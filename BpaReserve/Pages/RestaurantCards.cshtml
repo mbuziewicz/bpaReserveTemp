@@ -1,5 +1,5 @@
 ﻿@page
-@model BpaReserve.Pages.Restaurants.IndexModel
+@model BpaReserve.Pages.ResturantCardModel
 @{
 }
 
@@ -11,9 +11,11 @@
 
     <div class="container">
         <div class="row">
+
+
             @foreach (var item in Model.Restaurant)
             {
-
+                @ViewBag.currentUserID
                 <div class="col-sm">
                     <div class="card" style="width: 18rem;">
 
@@ -21,7 +23,7 @@
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.RestaurantName)</h5>
                             <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-                            <a class="btn btn-primary" asp-route-RestaurantId="@item.RestaurantID" asp-route-UserId="1" asp-area="" asp-page="/reservesection">Reserve</a>
+                            <a class="btn btn-primary" asp-route-RestaurantId="@item.RestaurantID" asp-route-UserId="@ViewBag.currentUserID" asp-area="" asp-page="/reservesection">Reserve</a>
 
                         </div>
                     </div>

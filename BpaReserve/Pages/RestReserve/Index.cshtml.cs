@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BpaReserve.Data;
 using Bpa_Test_2.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace BpaReserve.Pages.RestReserve
 {
-    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
@@ -26,8 +24,7 @@ namespace BpaReserve.Pages.RestReserve
         public async Task OnGetAsync()
         {
             restaurant_reservation = await _context.restaurant_reservation
-                .Include(r => r.Restaurant)
-                .Include(r => r.user).ToListAsync();
+                .Include(r => r.Restaurant).ToListAsync();
         }
     }
 }

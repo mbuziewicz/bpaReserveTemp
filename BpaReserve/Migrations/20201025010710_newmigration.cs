@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BpaReserve.Migrations
 {
-    public partial class migration1 : Migration
+    public partial class newmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,7 @@ namespace BpaReserve.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    MicrosoftUserID = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -62,9 +63,10 @@ namespace BpaReserve.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserID = table.Column<int>(nullable: false),
+                    NewUserID = table.Column<string>(nullable: true),
                     RestaurantID = table.Column<int>(nullable: false),
-                    DateAndTime = table.Column<DateTime>(nullable: false)
+                    DateAndTime = table.Column<DateTime>(nullable: false),
+                    userID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -76,11 +78,11 @@ namespace BpaReserve.Migrations
                         principalColumn: "RestaurantID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_restaurant_reservation_user_UserID",
-                        column: x => x.UserID,
+                        name: "FK_restaurant_reservation_user_userID",
+                        column: x => x.userID,
                         principalTable: "user",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,9 +118,9 @@ namespace BpaReserve.Migrations
                 column: "RestaurantID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_restaurant_reservation_UserID",
+                name: "IX_restaurant_reservation_userID",
                 table: "restaurant_reservation",
-                column: "UserID");
+                column: "userID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RideReservation_RideID",
