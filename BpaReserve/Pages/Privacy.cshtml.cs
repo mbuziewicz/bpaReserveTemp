@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace BpaReserve.Pages
 {
+    [Authorize]
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;

@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BpaReserve.Pages.Rides
 {
-    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;

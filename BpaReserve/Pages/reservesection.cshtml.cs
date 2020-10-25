@@ -32,7 +32,7 @@ namespace BpaReserve.Pages
 
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            System.Diagnostics.Debug.WriteLine("Userid:{0}", currentUserID);
+            //System.Diagnostics.Debug.WriteLine("Userid:{0}", currentUserID);
 
             ViewData["currentUserID"] = currentUserID;
             ViewData["RestaurantID"] = RestaurantId;

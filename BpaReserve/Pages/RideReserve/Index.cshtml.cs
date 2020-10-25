@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BpaReserve.Pages.RideReserve
 {
-    [Authorize(Roles = "Admin")]
+
     public class IndexModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;

@@ -1,11 +1,15 @@
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace BpaReserve.Pages
 {
+    [Authorize]
     public class RideCardModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
@@ -15,11 +19,11 @@ namespace BpaReserve.Pages
             _context = context;
         }
 
-        public IList<Bpa_Test_2.Models.Restaurant> Restaurant { get; set; }
+        public IList<Bpa_Test_2.Models.Ride> Rides { get; set; }
 
         public async Task OnGetAsync()
         {
-            Restaurant = await _context.Restaurant.ToListAsync();
+            Rides = await _context.Ride.ToListAsync();
         }
     }
 }

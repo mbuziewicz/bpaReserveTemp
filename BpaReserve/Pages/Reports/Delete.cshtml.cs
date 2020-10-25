@@ -7,21 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BpaReserve.Data;
 using Bpa_Test_2.Models;
-using Microsoft.AspNetCore.Authorization;
 
-namespace BpaReserve.Pages.Rides
+namespace BpaReserve.Pages.RestReserve
 {
-    public class DeleteModel : PageModel
+    public class DeleteReportModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
 
-        public DeleteModel(BpaReserve.Data.BpaReserveContext context)
+        public DeleteReportModel(BpaReserve.Data.BpaReserveContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Ride Ride { get; set; }
+        public restaurant_reservation restaurant_reservation { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +29,10 @@ namespace BpaReserve.Pages.Rides
                 return NotFound();
             }
 
-            Ride = await _context.Ride.FirstOrDefaultAsync(m => m.RideID == id);
+            restaurant_reservation = await _context.restaurant_reservation
+                .Include(r => r.Restaurant).FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Ride == null)
+            if (restaurant_reservation == null)
             {
                 return NotFound();
             }
@@ -46,11 +46,11 @@ namespace BpaReserve.Pages.Rides
                 return NotFound();
             }
 
-            Ride = await _context.Ride.FindAsync(id);
+            restaurant_reservation = await _context.restaurant_reservation.FindAsync(id);
 
-            if (Ride != null)
+            if (restaurant_reservation != null)
             {
-                _context.Ride.Remove(Ride);
+                _context.restaurant_reservation.Remove(restaurant_reservation);
                 await _context.SaveChangesAsync();
             }
 

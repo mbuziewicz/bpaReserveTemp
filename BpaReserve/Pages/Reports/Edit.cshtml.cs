@@ -8,21 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BpaReserve.Data;
 using Bpa_Test_2.Models;
-using Microsoft.AspNetCore.Authorization;
 
-namespace BpaReserve.Pages.Rides
+namespace BpaReserve.Pages.RestReserve
 {
-    public class EditModel : PageModel
+    public class EditReportModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
 
-        public EditModel(BpaReserve.Data.BpaReserveContext context)
+        public EditReportModel(BpaReserve.Data.BpaReserveContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Ride Ride { get; set; }
+        public restaurant_reservation restaurant_reservation { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -31,12 +30,14 @@ namespace BpaReserve.Pages.Rides
                 return NotFound();
             }
 
-            Ride = await _context.Ride.FirstOrDefaultAsync(m => m.RideID == id);
+            restaurant_reservation = await _context.restaurant_reservation
+                .Include(r => r.Restaurant).FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Ride == null)
+            if (restaurant_reservation == null)
             {
                 return NotFound();
             }
+           ViewData["RestaurantID"] = new SelectList(_context.Restaurant, "RestaurantID", "RestaurantID");
             return Page();
         }
 
@@ -49,7 +50,7 @@ namespace BpaReserve.Pages.Rides
                 return Page();
             }
 
-            _context.Attach(Ride).State = EntityState.Modified;
+            _context.Attach(restaurant_reservation).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +58,7 @@ namespace BpaReserve.Pages.Rides
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RideExists(Ride.RideID))
+                if (!restaurant_reservationExists(restaurant_reservation.ID))
                 {
                     return NotFound();
                 }
@@ -70,9 +71,9 @@ namespace BpaReserve.Pages.Rides
             return RedirectToPage("./Index");
         }
 
-        private bool RideExists(int id)
+        private bool restaurant_reservationExists(int id)
         {
-            return _context.Ride.Any(e => e.RideID == id);
+            return _context.restaurant_reservation.Any(e => e.ID == id);
         }
     }
 }
