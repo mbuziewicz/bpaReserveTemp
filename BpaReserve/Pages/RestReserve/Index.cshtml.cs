@@ -27,6 +27,28 @@ namespace BpaReserve.Pages.RestReserve
         {
             restaurant_reservation = await _context.restaurant_reservation
                 .Include(r => r.Restaurant).ToListAsync();
+
+            foreach (var p in restaurant_reservation)
+            {
+
+                DateTime date1 = p.DateAndTime;  //loop through the list and grab the date and time
+                DateTime date2 = new DateTime(2020, 10, 20, 12, 0, 0);
+                int result = DateTime.Compare(date1, date2);
+
+                TimeSpan diffresult = date1.Subtract(date2);
+
+                int hours = int.Parse(diffresult.Hours.ToString());
+                int hourstominutes = hours * 60;
+                int minutes = int.Parse(diffresult.Minutes.ToString());
+                int totalminutes = hourstominutes + minutes;
+
+                if (totalminutes < 15)
+                    System.Diagnostics.Debug.WriteLine("Less than 15 minutes");
+                else
+                    System.Diagnostics.Debug.WriteLine("greater than 15 minutes");
+
+
+            }
         }
     }
 }
