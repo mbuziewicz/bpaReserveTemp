@@ -9,9 +9,11 @@ using BpaReserve.Data;
 using Bpa_Test_2.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BpaReserve.Pages
 {
+    [Authorize]
     public class RestReserveEdit2Model : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;

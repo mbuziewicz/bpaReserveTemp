@@ -12,6 +12,7 @@ using System.Security.Claims;
 
 namespace BpaReserve.Pages.RestReserve
 {
+    [Authorize]
     public class IndexReportModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;

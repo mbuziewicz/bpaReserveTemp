@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BpaReserve.Pages
 {
-    [Authorize]
+
     public class ResturantCardModel : PageModel
     {
         private readonly BpaReserve.Data.BpaReserveContext _context;
