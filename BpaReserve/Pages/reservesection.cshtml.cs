@@ -75,6 +75,10 @@ namespace BpaReserve.Pages
                 //.Include(m => m.NewUserID == currentUserID)
                 .ToListAsync();
 
+            //account for the fact that there are no previous reservations.
+            if (restaurant_reservation2.Count < 1)
+                totalminutescheck = 100; //make it bigger than 30 so that it can add
+
             foreach (var p in restaurant_reservation2)
             {
 
@@ -97,8 +101,6 @@ namespace BpaReserve.Pages
                     System.Diagnostics.Debug.WriteLine("Less than 30 minutes");
                 else
                     System.Diagnostics.Debug.WriteLine("greater than 30 minutes");
-
-
             }
 
             if (!ModelState.IsValid || totalminutescheck < 30)
@@ -116,7 +118,7 @@ namespace BpaReserve.Pages
             _context.restaurant_reservation.Add(restaurant_reservation);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Reports/Index");
         }
     }
 }
